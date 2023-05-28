@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_for_in_up.css')}}">
+    <title>U|BLOG  | Войти</title>
+</head>
+<body>
+    <main class="Container">
+        <form class="Form_In" action="/" method="post">
+            <header class="Header"><h1>U|BLOG</h1></header>
+            <label class="Inputs_In">
+                <input class="Input-1" type="text" name="name" placeholder="USERNAME" maxlength="required"/>
+                <input class="Input-2" name="password" placeholder="PASSWORD" type="password" maxlength="required"/>
+            </label>
+
+            <footer class="Outputs_In">
+                <input class="Output_sign_in" type="submit" value="SIGN IN" />
+                <a class="Output" href="{{ url_for('sign_up') }}">SIGN UP</a>
+            </footer>
+        </form>
+    </main>
+    <script src="{{ url_for('static', filename='js/main_for_in.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+body {
+    background-color: rgba(238, 204, 235, 1);
+    background-size: cover;
+}
+
+.Header {
+    margin: 0 0 5% 0;
+    text-align: center;
+    color: rgba(191, 106, 172, 1);
+}
+
+
+.Form {
+    position: absolute;
+    display: block;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    text-align: center;
+
+    width: 20%;
+    height: 50%;
+    padding: 18px 6% 60px 6%;
+    background: rgba(213, 181, 224, 1);
+    border: 2px solid rgba(117, 60, 88, 0.84);
+    border-radius: 15px;
+}
+
+.Input {
+    position: sticky;
+    height: 8%;
+    width: 100%;
+    margin: 10px 0 20px 0;
+    display: flex;
+    padding: 8px 6% 8px 6%;
+    box-sizing: border-box;
+    background-color: rgba(243, 200, 239, 1);
+    border: 2px solid rgba(117, 60, 88, 0.84);
+    border-radius: 10px;
+}
+
+.Output {
+    position: sticky;
+    display: inline;
+    margin: 25px 10px 20px 10px;
+    padding: 8px 6% 8px 6%;
+    box-sizing: border-box;
+    border: 2px solid rgba(117, 60, 88, 0.84);
+    border-radius: 5px;
+}
