@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_for_in_up.css')}}">
-    <title>U|BLOG  | Войти</title>
+    <title>U|BLOG  | Sign In</title>
 </head>
 <body>
-    <main class="Container">
+    <main class="Container-In">
         <form class="Form_In" action="/" method="post">
             <header class="Header"><h1>U|BLOG</h1></header>
             <label class="Inputs_In">
@@ -17,7 +17,7 @@
             </label>
 
             <footer class="Outputs_In">
-                <input class="Output_sign_in" type="submit" value="SIGN IN" />
+                <a class="Output" href="{{ url_for('main_page') }}">SIGN IN</a>
                 <a class="Output" href="{{ url_for('sign_up') }}">SIGN UP</a>
             </footer>
         </form>
