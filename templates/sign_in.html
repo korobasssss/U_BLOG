@@ -12,12 +12,12 @@
         <form class="Form_In" action="/" method="post">
             <header class="Header"><h1>U|BLOG</h1></header>
             <label class="Inputs_In">
-                <input class="Input-1" type="text" name="name" placeholder="USERNAME" maxlength="required"/>
-                <input class="Input-2" name="password" placeholder="PASSWORD" type="password" maxlength="required"/>
+                <input class="Input-1" type="text" name="name" placeholder="USERNAME" maxlength="required" autocomplete="off"/>
+                <input class="Input-2" name="password" placeholder="PASSWORD" type="password" maxlength="required" autocomplete="off"/>
             </label>
 
             <footer class="Outputs_In">
-                <a class="Output" href="{{ url_for('main_page') }}">SIGN IN</a>
+                <button type="submit" class="Output">SIGN IN</button>
                 <a class="Output" href="{{ url_for('sign_up') }}">SIGN UP</a>
             </footer>
         </form>

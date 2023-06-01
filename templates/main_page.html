@@ -4,26 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_for_main_page.css')}}">
     <title>U|BLOG | Main Page</title>
 </head>
 <body>
-    <main>
-        <form class="posts_form" method="post" action="/post_message">
-            <input type="text" name="text" placeholder="type text...">
-            <button type="submit">SEND</button>
-        </form>
+    <section class="Full_Page">
+        <header class="Header">
+            <section class="Text_Header">
+                <h2>U|BLOG</h2>
+            </section>
+            <nav class="Nav">
+                <a href="{{ url_for('sign_in') }}">ВЫЙТИ</a>
+            </nav>
+        </header>
 
-        <section>
-            <h2>POSTS</h2>
-            <ul style="list-style-type:none">
-                {% for message in messages | reverse %}
-                <li>
-                    {{ message.text }}
-                </li>
-        {% endfor %}
-    </ul>
-</section>
-    </main>
+        <section class="Center">
+            <main class="Main">
+                <aside class="Aside">
+                    <header>
+                        <picture class="Main_photo">
+                            <img class="User_photo" src="{{ url_for('static', filename='images/main.png') }}" alt="profile image">
+                        </picture>
 
+                    </header>
+                </aside>
+                <main class="Right_side">
+                    <header class="Username" >{{ username }}</header>
+                    <form class="Posts_form" method="post" action="/post_message">
+                        <input class="Text" type="text" name="text" placeholder="text message...">
+                        <button class="Button_send" type="submit">SEND</button>
+                    </form>
+                    <section class="Posts_Block">
+                        <header class="Header_post">POSTS</header>
+                        <section class="Posts">
+                            <ul style="list-style-type:none">
+                            {% for message in messages | reverse %}
+                            <li>
+                                {{ message|safe }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        </section>
+                    </section>
+                </main>
+            </main>
+        </section>
+    </section>
 </body>
 </html>
