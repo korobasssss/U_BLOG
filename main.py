@@ -1,3 +1,4 @@
+import os
 from collections import namedtuple
 
 from django.shortcuts import render
@@ -46,12 +47,28 @@ def sign_up():
 @app.route("/main_page")
 def main_page():
     global curr_user_index
-    # global curr_user
 
     if curr_user_index != -1:
+        image = "images/" + db.take_photo(curr_user_index)
+        print(image)
+
         return render_template('main_page.html',
+                               user_photo=image,
                                username=db.user_data(curr_user_index)[3],
                                messages=db.take_message(curr_user_index))
+
+
+@app.route("/change_image", methods=['POST', 'GET'])
+def change_image():
+    global curr_user_index
+    image = request.files['image']
+    image_name = image.filename
+    image.save(os.path.join('static/images', image_name))
+
+    db.change_photo(curr_user_index, image_name)
+    print(image)
+
+    return redirect(url_for('main_page'))
 
 
 @app.route("/post_message", methods=['POST'])

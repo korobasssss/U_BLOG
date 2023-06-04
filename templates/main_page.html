@@ -21,12 +21,19 @@
         <section class="Center">
             <main class="Main">
                 <aside class="Aside">
-                    <header>
-                        <picture class="Main_photo">
-                            <img class="User_photo" src="{{ url_for('static', filename='images/sena.jpg') }}" alt="profile image">
-                        </picture>
-                    <button class="Add_photo"> ДОБАВИТЬ ФОТОГРАФИЮ</button>
-                    </header>
+                    <picture class="Main_photo">
+                            <img class="User_photo" src="{{ url_for('static', filename=user_photo) }}" alt="profile image">
+                    </picture>
+                    <form class="Image_form" method="post" action="/change_image" enctype="multipart/form-data">
+                        <input type="file" name="image" placeholder="ВЫБРАТЬ ФАЙЛ">
+                        <button class="Add_photo" type="submit">ОБНОВИТЬ ФОТОГРАФИЮ</button>
+                    </form>
+<!--                    <form class="Image_form" method="get" action="/change_image">-->
+<!--                        <picture class="Main_photo">-->
+<!--                            <img class="User_photo" src="{{ url_for('static', filename='images/sena.jpg') }}" alt="profile image">-->
+<!--                        </picture>-->
+<!--                    <button class="Add_photo"> ДОБАВИТЬ ФОТОГРАФИЮ</button>-->
+<!--                    </form>-->
                 </aside>
                 <main class="Right_side">
                     <header class="Username" >{{ username }}</header>

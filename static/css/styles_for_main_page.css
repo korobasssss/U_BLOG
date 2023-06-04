@@ -12,7 +12,7 @@ html, body {
 
 
 
-@media (min-width: 1600px) {
+@media (min-width: 1700px) {
    .Full_Page {
    overflow: scroll;
 
@@ -59,6 +59,22 @@ html, body {
     grid-template-columns: 70%;
 }
 
+.Aside {
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 400px 100px max-content;
+    grid-template-columns: 90%;
+
+    margin-top: 30px;
+}
+
+.Main_photo {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100%;
+    align-items: start;
+}
+
 .Main {
     background-color: rgba(244, 236, 244, 1);
     color: rgba(85, 14, 69, 1);
@@ -67,39 +83,37 @@ html, body {
     grid-template-columns: 30% auto;
 }
 
-.Aside {
-    display: grid;
-    justify-content: center;
-    grid-template-rows: 1fr max-content;
-    grid-template-columns: 50%;
-}
-
-.Main_photo {
-    display: grid;
-    justify-content: center;
-    align-content: top;
-}
-
 .User_photo {
     border: 3px solid rgba(191, 106, 172, 1);
     border-radius: 40px;
+
+    width: 350px;
+    height: 350px;
+}
+
+.Image_form {
+    margin: 1em;
+    display: grid;
+    justify-content: center;
+    row-gap: 5px;
 }
 
 .Add_photo {
+    display: grid;
+    align-content: center;
 
     border: none;
     text-decoration: none;
     background: #BF6AAC;
     border-radius: 10px;
     color: white;
-    font-size: 1.7em;
-    margin: 1em;
+    font-size: 1.2em;
 }
 
 
 .Right_side {
     display: grid;
-    grid-template-rows: 50px 50px auto;
+    grid-template-rows: 60px 50px auto;
     margin: 1em 1em 0 0;
 }
 
@@ -146,7 +160,7 @@ html, body {
 }
 
 .Header_post {
-    margin-top: 2%;
+    margin-top: 1%;
     font-size: 1.9em;
     background-color: rgba(220, 159, 206, 1);
     padding-left: 2%;
@@ -226,14 +240,17 @@ li {
 .Aside {
     display: grid;
     justify-content: center;
-    grid-template-rows: 1fr max-content;
-    grid-template-columns: 50%;
+    grid-template-rows: 400px 110px max-content;
+    grid-template-columns: 90%;
+
+    margin-top: 30px;
 }
 
 .Main_photo {
     display: grid;
     justify-content: center;
-    align-content: top;
+    grid-template-columns: 100%;
+    align-items: start;
 }
 
 .User_photo {
@@ -242,16 +259,34 @@ li {
     border-radius: 40px;
 }
 
+.Image_form {
+    margin: 1em;
+    display: grid;
+    justify-content: center;
+    row-gap: 5px;
+}
+
+.Add_photo {
+    display: grid;
+    align-content: center;
+
+    border: 3px solid rgba(191, 106, 172, 1);
+    text-decoration: none;
+    background: rgba(244, 236, 244, 1);
+    border-radius: 10px;
+    color: rgba(191, 106, 172, 1);
+    font-size: 1.2em;
+}
 
 .Right_side {
     display: grid;
-    grid-template-rows: 150px 50px auto;
-    margin: 2em 2em 0 2em;
+    grid-template-rows: 70px 50px auto;
+    margin: 1.5em 1.5em 0 0;
 }
 
 .Username {
     display: grid;
-    align-content: center;
+    align-items: center;
 
     font-size: 2.5em;
 }
@@ -368,10 +403,10 @@ li {
     grid-template-columns: 30% auto;
 }
 
-.Aside {
+Aside {
     display: grid;
     justify-content: center;
-    grid-template-rows: 1fr max-content;
+    grid-template-rows: 250px 100px max-content;
     grid-template-columns: 90%;
 
     margin-top: 30px;
@@ -380,7 +415,6 @@ li {
 .Main_photo {
     display: grid;
     justify-content: center;
-    grid-template-columns: 100%;
     align-items: start;
 }
 
@@ -388,22 +422,27 @@ li {
     border: 3px solid rgba(191, 106, 172, 1);
     border-radius: 40px;
 
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
+}
+
+.Image_form {
+    margin: 1em;
+    display: grid;
+    justify-content: center;
+    row-gap: 5px;
 }
 
 .Add_photo {
     display: grid;
-    align-content: start;
+    align-content: center;
 
-    border: none;
+    border: 3px solid rgba(191, 106, 172, 1);
     text-decoration: none;
-    background: #BF6AAC;
+    background: rgba(244, 236, 244, 1);
     border-radius: 10px;
-    color: white;
-    font-size: 1.2em;
-    margin: 1em;
-    padding: 2%;
+    color: rgba(191, 106, 172, 1);
+    font-size: 1.1em;
 }
 
 .Right_side {

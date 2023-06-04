@@ -14,6 +14,7 @@ def init():
             surname TEXT NOT NULL,
             username TEXT NOT NULL,
             password INTEGER NOT NULL,
+            image TEXT NOT NULL,
             messages TEXT NOT NULL
             )""")
         con.commit()
@@ -27,11 +28,16 @@ def add_user(name, surname, username, password):  # TODO защитить пар
         cur.execute("""SELECT * FROM USERS""")
         users = cur.fetchall()
 
-        index = users[len(users) - 1][0] + 1
-        print(index)
-        user = (index, name, surname, username, password, "")
+        if len(users) == 0:
+            index = 0
+        else:
+            index = users[len(users) - 1][0] + 1
 
-        cur.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?);", user)
+        print(index)
+
+        user = (index, name, surname, username, password, "main.jpg", "")
+
+        cur.execute("INSERT INTO users VALUES(?, ?, ?, ?, ?, ?, ?);", user)
         con.commit()
 
 
@@ -70,13 +76,31 @@ def check_user_in_base(username):
         return False
 
 
+def change_photo(curr_index, image):
+    with sql.connect("users_data.db") as con:
+        cur = con.cursor()
+
+        data = (image, curr_index)
+        cur.execute("UPDATE users SET image = ? WHERE user_id = ?", data)
+        con.commit()
+
+
+def take_photo(curr_index):
+    with sql.connect("users_data.db") as con:
+        cur = con.cursor()
+        cur.execute("""SELECT * FROM USERS""")
+        users = cur.fetchall()
+        image = users[curr_index][5]
+        return image
+
+
 def add_message(curr_index, message):
     with sql.connect("users_data.db") as con:
         cur = con.cursor()
 
         cur.execute("""SELECT * FROM USERS""")
         users = cur.fetchall()
-        user_message = users[curr_index][5]
+        user_message = users[curr_index][6]
         if user_message != '':
             user_message += '\n' + message
         else:
@@ -92,7 +116,7 @@ def take_message(curr_index):
         cur = con.cursor()
         cur.execute("""SELECT * FROM USERS""")
         users = cur.fetchall()
-        message = change_type_from_text_to_arr(users[curr_index][5])
+        message = change_type_from_text_to_arr(users[curr_index][6])
         return message
 
 
