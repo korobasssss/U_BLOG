@@ -25,7 +25,7 @@
                             <img class="User_photo" src="{{ url_for('static', filename=user_photo) }}" alt="profile image">
                     </picture>
                     <form class="Image_form" method="post" action="/change_image" enctype="multipart/form-data">
-                        <input type="file" name="image" placeholder="ВЫБРАТЬ ФАЙЛ">
+                        <input type="file" name="image">
                         <button class="Add_photo" type="submit">ОБНОВИТЬ ФОТОГРАФИЮ</button>
                     </form>
 <!--                    <form class="Image_form" method="get" action="/change_image">-->
