@@ -4,58 +4,29 @@ from django.shortcuts import render
 
 from flask import Flask, render_template, request, redirect, url_for
 
-from User import User
+import work_with_data as db
 
 app = Flask(__name__)
+db.init()
 
 Message = namedtuple('Message', 'text')
 messages = []
 
-users = []
-index = -1
-
-
-def check_user_in_db(someone):
-    for local_index in range(len(users)):
-        if someone.form['name'] == users[local_index].get_name and \
-                someone.form['password'] == users[local_index].get_password:
-            return local_index
-    return -1
-
-
-def new_user(someone):
-    global users
-    users.append(User(someone.form['name'], someone.form['surname'],
-                      someone.form['username'], someone.form['password'], []))
-    print(users)
-
-
-def name(requests):
-    return render(requests, 'main_page.html', {'username': users[index].get_username})
+# curr_user = ()
+curr_user_index = -1
 
 
 @app.route("/", methods=["POST", "GET"])
 def sign_in():
-    global index
-    global users
+    global curr_user_index
+    # global curr_user
     if request.method == 'POST':
-        print(request.form)
-        print(users)
-
-        for local_index in range(len(users)):
-            print(request.form['name'], request.form['password'])
-            print(users[local_index].get_username, users[local_index].get_password)
-            if request.form['name'] == users[local_index].get_username and \
-                    request.form['password'] == users[local_index].get_password:
-                index = local_index
-                print(index)
-                return redirect(url_for('main_page'))
-
-        # local_user_index = check_user_in_db(request)
-        # if local_user_index != -1:
-        #     print(request.form)
-        #     index = local_user_index
-        #     return redirect(url_for('main_page'))
+        curr_user_index = db.find_user(request.form['name'], request.form['password'])
+        print(curr_user_index)
+        if curr_user_index != -1:
+            # curr_user = db.user_data(curr_user_index)
+            db.user_data(curr_user_index)
+            return redirect(url_for('main_page'))
 
     return render_template('sign_in.html')
 
@@ -63,30 +34,34 @@ def sign_in():
 @app.route("/sign_up", methods=['POST', 'GET'])
 def sign_up():
     if request.method == 'POST':
-        if request.form['password'] == request.form['repeat_password']:
-            new_user(request)
-            return redirect(url_for('sign_in'))
+        if not db.check_user_in_base(request.form['username']):
+            if request.form['password'] == request.form['repeat_password']:
+                db.add_user(request.form['name'], request.form['surname'],
+                            request.form['username'], request.form['password'])
+                return redirect(url_for('sign_in'))
 
     return render_template('sign_up.html')
 
 
 @app.route("/main_page")
 def main_page():
-    global index
-    global users
-    print(users)
-    if index != -1:
-        # print(messages)
-        print(users[index].messages)
-        return render_template('main_page.html', username=users[index].get_username, messages=users[index].messages)
+    global curr_user_index
+    # global curr_user
+
+    if curr_user_index != -1:
+        return render_template('main_page.html',
+                               username=db.user_data(curr_user_index)[3],
+                               messages=db.take_message(curr_user_index))
 
 
 @app.route("/post_message", methods=['POST'])
 def post_message():
-    global users
+    global curr_user_index
+
     text = request.form['text']
-    print(text)
-    users[index].messages.append(text)
+    db.add_message(curr_user_index, text)
+
+    db.user_data(curr_user_index)
 
     return redirect(url_for('main_page'))
 

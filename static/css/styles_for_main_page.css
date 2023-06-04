@@ -77,22 +77,30 @@ html, body {
 .Main_photo {
     display: grid;
     justify-content: center;
-    align-content: center;
-    grid-template-rows: 1fr;
-    grid-template-columns: 90%;
+    align-content: top;
 }
 
 .User_photo {
-    margin: 10% 0% 0% 0%;
     border: 3px solid rgba(191, 106, 172, 1);
     border-radius: 40px;
+}
+
+.Add_photo {
+
+    border: none;
+    text-decoration: none;
+    background: #BF6AAC;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.7em;
+    margin: 1em;
 }
 
 
 .Right_side {
     display: grid;
     grid-template-rows: 50px 50px auto;
-    margin: 2em 2em 0 2em;
+    margin: 1em 1em 0 0;
 }
 
 .Username {
@@ -225,9 +233,7 @@ li {
 .Main_photo {
     display: grid;
     justify-content: center;
-    align-content: center;
-    grid-template-rows: 1fr;
-    grid-template-columns: 90%;
+    align-content: top;
 }
 
 .User_photo {
@@ -298,11 +304,12 @@ li {
 
 .Posts {
     background-color: rgba(232, 206, 220, 1);
+    padding-left: 3%;
+    font-size: 1em;
 }
 
 li {
     margin: 2% 0% 2% 2%;
-    font-size: 1.5em;
 }
 
 }
@@ -366,25 +373,43 @@ li {
     justify-content: center;
     grid-template-rows: 1fr max-content;
     grid-template-columns: 90%;
+
+    margin-top: 30px;
 }
 
 .Main_photo {
     display: grid;
     justify-content: center;
-    align-content: center;
+    grid-template-columns: 100%;
+    align-items: start;
 }
 
 .User_photo {
-    margin: 10% 0% 0% 0%;
     border: 3px solid rgba(191, 106, 172, 1);
     border-radius: 40px;
+
+    width: 300px;
+    height: 300px;
 }
 
+.Add_photo {
+    display: grid;
+    align-content: start;
+
+    border: none;
+    text-decoration: none;
+    background: #BF6AAC;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2em;
+    margin: 1em;
+    padding: 2%;
+}
 
 .Right_side {
     display: grid;
-    grid-template-rows: 50px 50px auto;
-    margin: 2em 2em 0 2em;
+    grid-template-rows: 60px 50px auto;
+    margin: 1em 1em 0 0;
 }
 
 .Username {
@@ -425,7 +450,6 @@ li {
 }
 
 .Posts_Block {
-    overflow: scroll;
     display: grid;
     grid-template-rows: 50px auto;
 }
@@ -442,13 +466,13 @@ li {
 }
 
 .Posts {
-    overflow: auto;
     background-color: rgba(232, 206, 220, 1);
+    padding-left: 3%;
+    font-size: 1em;
 }
 
 li {
     margin: 2% 0% 2% 2%;
-    font-size: 1.5em;
 }
 
 }
@@ -519,10 +543,11 @@ li {
     display: grid;
     justify-content: center;
     align-content: center;
+    margin: 50px 50px 50px 50px;
 }
 
 .User_photo {
-    margin: 10% 0% 0% 0%;
+
     border: 3px solid rgba(191, 106, 172, 1);
     border-radius: 40px;
 }
@@ -590,11 +615,13 @@ li {
 
 .Posts {
     background-color: rgba(232, 206, 220, 1);
+    padding-left: 3%;
+    font-size: 1em;
 }
 
 li {
     margin: 2% 0% 2% 2%;
-    font-size: 1.5em;
+    font-size: 0.7em;
 }
 }
 
